@@ -1,0 +1,3 @@
+/Users/sokiwar/CLionProjects/CroatiaAlpha/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/sokiwar/CLionProjects/CroatiaAlpha/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/sokiwar/CLionProjects/CroatiaAlpha/cmake-build-debug/CMakeFiles/CroatiaAlpha.dir

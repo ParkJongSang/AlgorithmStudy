@@ -1,0 +1,3 @@
+/Users/sokiwar/CLionProjects/Binomial_Coefficient_2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/sokiwar/CLionProjects/Binomial_Coefficient_2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/sokiwar/CLionProjects/Binomial_Coefficient_2/cmake-build-debug/CMakeFiles/Binomial_Coefficient_2.dir
