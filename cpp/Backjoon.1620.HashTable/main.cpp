@@ -20,6 +20,7 @@ typedef struct Node{
         next = NULL;
     }
 };
+
 Node* hashTable[mod];
 
 int myHash(char *s){
@@ -65,7 +66,7 @@ int findHashTable(char *s){
     return -1;
 }
 
-int charToString(char *s){
+int parseToInteger(char *s){
     int ret = 0;
     for(int i = 0; s[i]; i++){
         ret *= 10;
@@ -99,7 +100,7 @@ int main(){
         scanf("%s", &pocket);
 
         if(pocket[0] >= '0' && pocket[0] <= '9'){
-            int idx = charToString(pocket);
+            int idx = parseToInteger(pocket);
             printf("%s\n", tab[idx]);
         }else{
             printf("%d\n", findHashTable(pocket));
