@@ -5,27 +5,42 @@ typedef long long ll;
 
 using namespace std;
 
+ll arr[100000];
+
 int main(void){
-    int N;
+    ll ans = 0;
     while(1){
-        scanf("%d", &N);
-        if(!N) break;
-        stack<pair<int, int> > st;
-        ll ans = 0;
-        for(int i_idx = 0; i_idx <= N; i_idx++){
-            int i_height;
-            if(i_idx < N){
-                scanf("%d", &i_height);
-            }else{
-                i_height = -1;
+        int N; scanf("%d", &N);
+        if(N == 0) break;
+        stack<ll> s;
+        for(int i = 0; i < N; i++){
+            scanf("%lld", &arr[i]);
+        }
+        ans = 0;
+        for(int i = 0; i < N; i++){
+            while(!s.empty() && arr[s.top()] > arr[i]){
+                ll height = arr[s.top()];
+                s.pop();
+                ll width = i;
+                if(!s.empty()){
+                    width = i - s.top() - 1;
+                }
+                if(ans < width * height){
+                    ans = width * height;
+                }
             }
-            int left = i_idx;
-            while(!st.empty() && st.top().second > i_height){
-                ans = max(ans, ((ll)i_idx - st.top().first) * st.top().second);
-                left = st.top().first;
-                st.pop();
+            s.push(i);
+        }
+        while(!s.empty()){
+            ll height = arr[s.top()];
+            s.pop();
+            ll width = (ll)N;
+            if(!s.empty()){
+                width = (ll)N - s.top() - 1;
             }
-            st.push(make_pair(left, i_height));
+            if(ans < width * height){
+                ans = width * height;
+            }
         }
         printf("%lld\n", ans);
     }

@@ -33,15 +33,19 @@ int query(int lo, int hi, int node, int x, int y) {
     return q2;
 }
 
-ll sol(int lo, int hi) {
+ll sol(int lo, int hi, int w) {
     int m = query(lo, hi, 1, 0, n - 1);
-    ll res = (ll)(hi - lo + 1)*a[m];
+    ll res = 0;
+    if(w == (hi - lo + 1)){
+        res = (ll)(hi - lo + 1)*a[m];
+    }
+    
     if (lo <= m - 1) {
-        ll ans = sol(lo, m - 1);
+        ll ans = sol(lo, m - 1, w);
         res = max(res, ans);
     }
     if (m + 1 <= hi) {
-        ll ans = sol(m + 1, hi);
+        ll ans = sol(m + 1, hi, w);
         res = max(res, ans);
     }
     return res;
@@ -49,12 +53,14 @@ ll sol(int lo, int hi) {
 
 int main() {
     scanf("%d", &n);
-    while (n) {
-        for (int i = 0; i < n; i++)
-            scanf("%d", &a[i]);
-        init(1, 0, n - 1);
-        printf("%lld\n", sol(0, n - 1));
-        scanf("%d", &n);
+    for (int i = 0; i < n; i++) scanf("%d", &a[i]);
+    init(1, 0, n - 1);
+    int m; scanf("%d", &m);
+    for(int i = 0; i < m; i++){
+        int a, b, c; scanf("%d %d %d", &a, &b, &c);
+        printf("%lld\n", sol(a-1, b-1, c));
     }
+    
+    
     return 0;
 }
