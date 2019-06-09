@@ -6,10 +6,9 @@ const int PN  = 23;
 
 int name_size;
 char name[MAX_L][22];
-int table[HASH_SIZE][22]; //table의 0번째에는 해당 위치에 들어있는 데이터의 숫자가 들어가있다.
+int table[HASH_SIZE][40]; //table의 0번째에는 해당 위치에 들어있는 데이터의 숫자가 들어가있다.
 char ret[MAX_L][22];
 char buf[MAX_L][22];
-
 
 //해싱
 unsigned int get_key(char _data[]){
