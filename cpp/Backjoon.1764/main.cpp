@@ -1,12 +1,14 @@
 #include <cstdio>
 #define MAX_L 500000
 
-const int HASH_SIZE = 100000;
+const int HASH_SIZE = 10000;
 const int PN  = 23;
 
 int name_size;
 char name[MAX_L][22];
-int table[HASH_SIZE][40]; //table의 0번째에는 해당 위치에 들어있는 데이터의 숫자가 들어가있다.
+int table[HASH_SIZE][1000]; 
+//table의 0번째에는 해당 위치에 들어있는 데이터의 숫자가 들어가있다.
+//값은 해당 문자열의 Index가 들어감
 char ret[MAX_L][22];
 char buf[MAX_L][22];
 
