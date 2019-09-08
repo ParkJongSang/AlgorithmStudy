@@ -3,6 +3,7 @@
 #define MAXSIZE 102
 
 using namespace std;
+
 struct FISH {
     int x, y, s, z, dir, death;
 }arr[MAXSIZE*MAXSIZE];
@@ -17,12 +18,12 @@ int main(void) {
 
     for (int i = 1; i <= M; i++) {
         cin >> arr[i].y >> arr[i].x >> arr[i].s >> arr[i].dir >> arr[i].z;
-        arr[i].y -= 1; arr[i].x -= 1;
+        arr[i].y -= 1;
+        arr[i].x -= 1;
         map[arr[i].y][arr[i].x] = i;
     }
 
     for (int t = 0; t < C; t++) {
-
         for (int y = 0; y < R; y++) { // 물고기 잡기
             if (map[y][t]) {
                 arr[map[y][t]].death = 1;
@@ -38,7 +39,8 @@ int main(void) {
             int ix = arr[i].x, iy = arr[i].y, s = arr[i].s, idir = arr[i].dir;
             int nx, ny;
             while (1) {
-                nx = ix + s * dx[idir]; ny = iy + s * dy[idir];
+                nx = ix + s * dx[idir]; 
+                ny = iy + s * dy[idir];
                 if (nx < C && ny < R && ny >= 0 && nx >= 0)
                     break;
                 if (idir == 1 && ny < 0) { 
@@ -61,7 +63,8 @@ int main(void) {
             }
             if (tmp[ny][nx]) {
                 if (arr[tmp[ny][nx]].z < arr[i].z) { 
-                    arr[tmp[ny][nx]].death = 1; tmp[ny][nx] = i; 
+                    arr[tmp[ny][nx]].death = 1;
+                    tmp[ny][nx] = i; 
                 }else{
                     arr[i].death = 1;
                 }
