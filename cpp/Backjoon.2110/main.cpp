@@ -1,53 +1,23 @@
 #include <cstdio>
+#include <vector>
+
+using namespace std;
 #define MAX_L 200000
 
 typedef long long ll;
 
 int C, N;
-ll x_pos[MAX_L];
-ll buf[MAX_L];
-
-void merge(ll *ptr, int len){
-    if(len < 2) return;
-    int mid = len/2;
-    merge(ptr, mid);
-    merge(ptr+mid, len-mid);
-
-    int i,j,k;
-    i = 0; j = mid; k = 0;
-
-    while(i < mid && j < len){
-        if(ptr[i] < ptr[j]){
-            buf[k++] = ptr[i++];
-        }else {
-            buf[k++] = ptr[j++];
-        }
-    }
-    while(i < mid){
-        buf[k++] = ptr[i++];
-    }
-    while(j < len){
-        buf[k++] = ptr[j++];
-    }
-    for(int i = 0; i < len; i++){
-        ptr[i] = buf[i];
-    }
-}
-
-void debug(){
-    for(int i = 0; i < N; i++){
-        printf("%lld ", x_pos[i]);
-    }
-    printf("\n");
-}
 
 int main(void){
+    vector<ll> x_pos;
     scanf("%d %d", &N, &C);
     for(int i = 0; i < N; i++){
-        scanf("%lld", &x_pos[i]);
+        ll tmp; 
+        scanf("%lld", &tmp);
+        x_pos.push_back(tmp);
     }
-    merge(x_pos, N);
-
+    sort(x_pos.begin(), x_pos.end());
+    
     ll start = 1;
     ll end = x_pos[N-1] - x_pos[0];
     ll ans = 0;
