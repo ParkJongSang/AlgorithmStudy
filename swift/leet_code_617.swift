@@ -30,7 +30,9 @@ class Solution {
         }
         ret = TreeNode(leftVal + rightVal)
         ret?.left = mergeTrees(t1?.left, t2?.left)
+        //ret = TreeNode(leftVal + rightVal)
         ret?.right = mergeTrees(t1?.right, t2?.right)
+        //ret = TreeNode(leftVal + rightVal)
         
         return ret
     }
