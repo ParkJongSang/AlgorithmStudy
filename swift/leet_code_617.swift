@@ -13,19 +13,25 @@
  */
 class Solution {
     func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
+        var ret: TreeNode?
         if t1 == nil {
-            return t2
+            ret = t2
+            return ret
         }
         if t2 == nil {
-            return t1
+            ret = t1
+            return ret
         }
-        guard let toAddVal = t2?.val else {
+        guard let leftVal = t1?.val else {
             return nil
         }
-        t1?.left = mergeTrees(t1?.left, t2?.left)
-        t1?.right = mergeTrees(t1?.right, t2?.right)
-        t1?.val += toAddVal
+        guard let rightVal = t2?.val else {
+            return nil
+        }
+        ret = TreeNode(leftVal + rightVal)
+        ret?.left = mergeTrees(t1?.left, t2?.left)
+        ret?.right = mergeTrees(t1?.right, t2?.right)
         
-        return t1
+        return ret
     }
 }
