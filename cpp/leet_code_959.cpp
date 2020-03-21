@@ -36,12 +36,12 @@ public:
                     while(!q.empty()) {
                         int cy = q.front().first;
                         int cx = q.front().second;
-                        board[cy][cx] = 1;
                         q.pop();
                         for(int k = 0; k < 4; k++) {
                             int nx = cx + dx[k];
                             int ny = cy + dy[k];
                             if(nx < boardHeight && ny < boardWidth && nx >= 0 && ny >= 0 && board[ny][nx] == 0) {
+                                board[ny][nx] = 1;
                                 q.push({ny, nx});
                             }
                         }
